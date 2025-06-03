@@ -6,7 +6,7 @@ public class Main {
         Paciente paciente = new Paciente("Samuel", "SamuelLaf@email.com", "12345");
         //fazendo login
         paciente.login("SamuelLaf@email.com", "12345");
-        //ok
+        //ok.
 
 
     }
