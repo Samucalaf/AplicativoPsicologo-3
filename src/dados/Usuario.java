@@ -13,7 +13,7 @@ public abstract class Usuario {
 
     public void login(String email, String senha){
         if (email.equals(this.email) && senha.equals(this.senha)){
-            System.out.println("Logado com sucesso!");
+            System.out.println("Paciente logado com sucesso!");
         }else{
             System.out.println("Email ou senha incorretos!");
         }
