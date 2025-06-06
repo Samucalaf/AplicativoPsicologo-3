@@ -7,8 +7,11 @@ public class Paciente extends Usuario implements Autenticavel{
     private int idade;
     private ArrayList<PlanoDeTratamento> planoTratamento;
 
-    public Paciente(String nome, String email, String senha){
+    public Paciente(String nome, String email, String senha, String problema, int idade){
         super(nome, email, senha);
+        this.problema = problema;
+        this.idade = idade;
+        this.planoTratamento = new ArrayList<>();
     }
 
     public void adicionaPLano(PlanoDeTratamento planoDeTratamento){
@@ -32,4 +35,5 @@ public class Paciente extends Usuario implements Autenticavel{
     public ArrayList<PlanoDeTratamento> getPlanoTratamento() {
         return planoTratamento;
     }
+
 }
