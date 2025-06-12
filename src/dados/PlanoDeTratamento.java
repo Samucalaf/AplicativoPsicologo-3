@@ -8,7 +8,7 @@ public class PlanoDeTratamento {
     private int sessoesRealizadas;
     private ArrayList<Sessao> sessoes;
     private Psicologo psicologo;
-    //atributo Pscicologo para associar o plano de tratamento ao psicologo que o criou.
+    //atributo Pscicologo para associar o plano de tratamento ao psicologo que o criou..
 
     public PlanoDeTratamento(String objetivo, int numeroSessoes, Psicologo psicologo){
         this.objetivo = objetivo;
