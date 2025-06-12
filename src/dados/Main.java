@@ -22,39 +22,38 @@ public class Main {
         String problemaPaciente = scanner.nextLine();
 
         System.out.print("Digite sua idade: ");
-        int idadePaciente = Integer.parseInt(scanner.nextLine());
+        int idadePaciente = scanner.nextInt();
 
         Paciente paciente = new Paciente(nomePaciente, emailPaciente, senhaPaciente, problemaPaciente, idadePaciente);
 
-        System.out.println("\n-----------------Cadastro do Psicólogo-------------------------\n");
+        // Lista fixa de psicólogos disponíveis
+        Psicologo[] psicologos = {
+            new Psicologo("Dra. Ana Silva", "ana@clinica.com", "senha123", "12345-CRP", "Terapia Cognitivo-Comportamental"),
+            new Psicologo("Dr. João Souza", "joao@clinica.com", "senha456", "67890-CRP", "Psicanálise"),
+            new Psicologo("Dra. Maria Oliveira", "maria@clinica.com", "senha789", "54321-CRP", "Terapia Humanista")
+        };
 
-        System.out.print("Digite o nome do psicólogo: ");
-        String nomePsicologo = scanner.nextLine();
-
-        System.out.print("Digite o email: ");
-        String emailPsicologo = scanner.nextLine();
-
-        System.out.print("Digite a senha: ");
-        String senhaPsicologo = scanner.nextLine();
-
-        System.out.print("Digite o CRP do psicólogo: ");
-        String crp = scanner.nextLine();
-
-        System.out.print("Digite a especialidade: ");
-        String especialidade = scanner.nextLine();
-
-        Psicologo psicologo = new Psicologo(nomePsicologo, emailPsicologo, senhaPsicologo, crp, especialidade);
+        System.out.println("\n------------------Psicólogos Disponíveis------------------------\n");
+        for (int i = 0; i < psicologos.length; i++) {
+            System.out.println((i+1) + ". " + psicologos[i].getNome() + " | Especialidade: " + psicologos[i].getEspecialidade());
+        }
+        System.out.println("\nEscolha um psicólogo pelo número:");
+        int escolha = scanner.nextInt();
+        Psicologo psicologoEscolhido = psicologos[escolha - 1];
+        System.out.println("Você escolheu: " + psicologoEscolhido.getNome() + " | Especialidade: " + psicologoEscolhido.getEspecialidade());
+        scanner.nextLine(); // Consumir a quebra de linha pendente
 
         System.out.println("\n------------------Plano de tratamento------------------------\n");
 
-        System.out.print("Qual será seu plano de tratamento? ");
+        System.out.print("\nQual será seu plano de tratamento? ");
         String tratamento = scanner.nextLine();
 
         System.out.print("Quantas sessões? ");
         int sessoes = Integer.parseInt(scanner.nextLine());
 
-        PlanoDeTratamento plano = new PlanoDeTratamento(tratamento, sessoes);
+        PlanoDeTratamento plano = new PlanoDeTratamento(tratamento, sessoes, psicologoEscolhido);
         paciente.adicionaPLano(plano);
+        System.out.println("O plano de tratamento será acompanhado por: " + plano.getPsicologo().getNome());
 
         System.out.println("\n-----------------Criar uma sessão-------------------------\n");
 

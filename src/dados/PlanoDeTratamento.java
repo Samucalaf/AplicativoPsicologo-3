@@ -7,12 +7,15 @@ public class PlanoDeTratamento {
     private int numeroSessoes;
     private int sessoesRealizadas;
     private ArrayList<Sessao> sessoes;
+    private Psicologo psicologo;
+    //atributo Pscicologo para associar o plano de tratamento ao psicologo que o criou.
 
-    public PlanoDeTratamento(String objetivo, int numeroSessoes){
+    public PlanoDeTratamento(String objetivo, int numeroSessoes, Psicologo psicologo){
         this.objetivo = objetivo;
         this.numeroSessoes = numeroSessoes;
         this.sessoesRealizadas = 0;
         this.sessoes = new ArrayList<>();
+        this.psicologo = psicologo;
     }
 
     public void adicionarSessaoRealizada(Sessao sessao){
@@ -39,5 +42,9 @@ public class PlanoDeTratamento {
 
     public ArrayList<Sessao> getSessoes() {
         return sessoes;
+    }
+
+    public Psicologo getPsicologo() {
+        return psicologo;
     }
 }
